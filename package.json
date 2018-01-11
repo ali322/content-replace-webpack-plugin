@@ -1,0 +1,25 @@
+{
+  "name": "content-replace-webpack-plugin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ali322/content-replace-webpack-plugin.git"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "alichen",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "lodash": "^4.17.4",
+    "minimatch": "^3.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "webpack": "^3.10.0"
+  }
+}
