@@ -79,14 +79,16 @@ ContentReplacePlugin.prototype.apply = function(compiler) {
     })
     forEach(files, function(key) {
       let asset = compilation.assets[key]
-      let content = asset.source()
-      let result = applyReplacer(key, content, replacer)
-      compilation.assets[key] = {
-        source() {
-          return result
-        },
-        size() {
-          return result.length
+      if (asset) {
+        let content = asset.source()
+        let result = applyReplacer(key, content, replacer)
+        compilation.assets[key] = {
+          source() {
+            return result
+          },
+          size() {
+            return result.length
+          }
         }
       }
     })
