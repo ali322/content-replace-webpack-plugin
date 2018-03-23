@@ -2,7 +2,6 @@ let {
   some,
   includes,
   forEach,
-  isRegExp,
   isString,
   isFunction
 } = require('lodash')
@@ -19,9 +18,7 @@ function ContentReplacePlugin(options) {
 }
 
 function isRuleMatched(file, rule) {
-  if (isRegExp(rule)) {
-    return rule.test(file)
-  } else if (isString(rule)) {
+  if (isString(rule)) {
     return minimatch(file, rule)
   }
   return false
