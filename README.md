@@ -2,7 +2,7 @@ content-replace-webpack-plugin [![Build Status](https://travis-ci.org/ali322/con
 ===
 [![NPM](https://nodei.co/npm/content-replace-webpack-plugin.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/content-replace-webpack-plugin/)
 
-simple and efficient Webpack plugin that replace assets content when webpack emit files
+simple and efficient plugin that replace assets content when webpack emit files
 
 Install
 ===
@@ -34,7 +34,8 @@ module.exports = {
     },
     plugins:[
         new ContentReplacePlugin({
-          external: ['path/to/other/file'] // other files which not in webpack assets
+          external: ['path/to/other/file'], // other files which not in webpack assets
+          chunks: ['index'],
           rules: {
             '.js': content => content.replace('/foo', '/bar')
           }
@@ -48,7 +49,7 @@ Plugin Options
 
 - **external**: other files which not in webpack assets
 - **rules**: replace rules, accept object which key is file extname and value is replace function
-- **ignore**: array of file path should not be replace,glob pattern accepted
+- **chunks**: only these chunks's files will be replaced, default value is all
 
 ## License
 
