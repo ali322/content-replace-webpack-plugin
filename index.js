@@ -28,7 +28,7 @@ function applyReplacer(file, content, replacers) {
   let replaced = content
   forEach(replacers, (replacer, rule) => {
     if (isRuleMatched(file, rule) && isFunction(replacer)) {
-      replaced = replacer(content)
+      replaced = replacer(content, file)
       return false
     }
   })
