@@ -67,14 +67,15 @@ ContentReplacePlugin.prototype.apply = function(compiler) {
   let emit = function(compilation, callback = () => {}) {
     let assets = compilation.assets
     let files = []
-    let chunks = compilation.chunks
+    let chunks = Array.from(compilation.chunks)
     forEach(chunks, chunk => {
+      const chunkFiles = Array.from(chunk.files);
       if (selected.length > 0) {
         if (includes(selected, chunk.name)) {
-          files = files.concat(chunk.files)
+          files = files.concat(chunkFiles);
         }
       } else {
-        files = files.concat(chunk.files)
+        files = files.concat(chunkFiles);
       }
     })
     forEach(files, function(key) {
